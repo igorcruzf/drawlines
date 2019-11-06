@@ -9,35 +9,35 @@ import javax.swing.ButtonGroup;
 
 
 public class Menu {
-    public static JMenu menu = new JMenu ("Ferramentas");
-    public static JMenu menuColor = new JMenu ("Cor");
-    public static JMenuItem color = new JMenuItem ("Escolher cor", MenuKeyEvent.VK_E);
-    public static JMenuItem randomColor = new JMenuItem ("Cor aleatória", MenuKeyEvent.VK_C);
-    public static JMenuItem clear = new JMenuItem ("Limpar", MenuKeyEvent.VK_L);
-    public static JMenuItem undo = new JMenuItem ("Desfazer", MenuKeyEvent.VK_D);
-    public static JMenuItem redo = new JMenuItem ("Refazer", MenuKeyEvent.VK_F);
-    public static JRadioButtonMenuItem straightLineButton = new JRadioButtonMenuItem("Modo reta");
-    public static JRadioButtonMenuItem freeLineButton = new JRadioButtonMenuItem("Modo livre");
-    public static ButtonGroup group = new ButtonGroup();
+    private static JMenu menu = new JMenu ("Ferramentas");
+    private static JMenu menuColor = new JMenu ("Cor");
+    private static JMenuItem color = new JMenuItem ("Escolher cor", MenuKeyEvent.VK_E);
+    private static JMenuItem randomColor = new JMenuItem ("Cor aleatória", MenuKeyEvent.VK_C);
+    private static JMenuItem clear = new JMenuItem ("Limpar", MenuKeyEvent.VK_L);
+    private static JMenuItem undo = new JMenuItem ("Desfazer", MenuKeyEvent.VK_D);
+    private static JMenuItem redo = new JMenuItem ("Refazer", MenuKeyEvent.VK_F);
+    private static JRadioButtonMenuItem straightLineButton = new JRadioButtonMenuItem("Modo reta");
+    private static JRadioButtonMenuItem freeLineButton = new JRadioButtonMenuItem("Modo livre");
+    private static ButtonGroup group = new ButtonGroup();
     
     public static void initialize(JMenuBar menuBar){
         menuBar.add (menu);
-        undo.addActionListener(new Events.Undo());
+        undo.addActionListener(new MenuEvents.Undo());
         menu.add(undo);
-        redo.addActionListener(new Events.Redo());
+        redo.addActionListener(new MenuEvents.Redo());
         menu.add(redo);
         menu.addSeparator ();
-        clear.addActionListener(new Events.Clear());
+        clear.addActionListener(new MenuEvents.Clear());
         menu.add(clear);
         menu.addSeparator ();
-        color.addActionListener(new Events.ChooseColor());
-        randomColor.addActionListener(new Events.RandomColor());
+        color.addActionListener(new MenuEvents.ChooseColor());
+        randomColor.addActionListener(new MenuEvents.RandomColor());
         menu.add(menuColor);
         menuColor.add(color);
         menuColor.add(randomColor);
         menu.addSeparator();
-        straightLineButton.addActionListener(new Events.StraightOrNot());
-        freeLineButton.addActionListener(new Events.StraightOrNot());
+        straightLineButton.addActionListener(new MenuEvents.StraightOrNot());
+        freeLineButton.addActionListener(new MenuEvents.StraightOrNot());
         group.add(straightLineButton);
         group.add(freeLineButton);
         freeLineButton.setSelected(true);

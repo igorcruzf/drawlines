@@ -6,7 +6,7 @@ import java.awt.event.ActionListener;
 import java.util.LinkedList;
 import javax.swing.JColorChooser;
 
-public class Events {
+public class MenuEvents {
 
     public static class Undo implements ActionListener {
 

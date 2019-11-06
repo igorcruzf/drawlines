@@ -75,7 +75,6 @@ public class Lines {
             @Override
             public void paint(Graphics g) {
                 super.paint(g);
-
                 if (pointStart != null) {
                     if (!straightLine) {
                         Line line = new Line(pointStart.x, pointStart.y, pointEnd.x, pointEnd.y, lineColor);
